@@ -83,6 +83,7 @@ form input {
 .habit-summary {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
 }
 
@@ -95,4 +96,20 @@ form input {
     text-decoration: none;
     font-size: 18px;
     cursor: pointer;
+    width: 80%;
+}
+
+.google-container {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.facebook-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
 }
