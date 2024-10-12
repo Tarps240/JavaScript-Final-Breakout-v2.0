@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellFit - Mood</title>
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="page-container">
+        <h1>Mood over the Past 7 Days</h1>
+        <canvas id="moodChart"></canvas>
+        <form id="moodForm">
+            <label for="mood">Log your current mood from 1 (sad) - 10 (happy):</label>
+            <input type="number" id="mood" min="1" max="10" required>
+            <button type="submit" class="btn">Log Mood</button>
+        </form>
+    </div>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>

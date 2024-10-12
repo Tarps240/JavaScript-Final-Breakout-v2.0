@@ -1,0 +1,7 @@
+<div class="habit-summary">
+    <a href="water.html" class="habit-card">Water Intake</a>
+    <a href="meals.html" class="habit-card">Meals</a>
+    <a href="exercise.html" class="habit-card">Exercise</a>
+    <a href="sleep.html" class="habit-card">Sleep</a>
+    <a href="calories.html" class="habit-card">Calorie Counter</a> <!-- Updated -->
+</div>

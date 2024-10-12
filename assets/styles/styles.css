@@ -1,0 +1,98 @@
+/* Import Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Define Global Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-neon-green: #32CD32;
+    --color-neon-green-dark: #11951e;
+    --color-bg-black: black;
+    --color-bg-white: white;
+    --text-color: #333;
+    --border-color: #ccc;
+    --ff-standard: 'Roboto', 'sans-serif';
+}
+
+body {
+    font-family: var(--ff-standard);
+    background-color: var(--color-bg-black);
+    color: var(--color-bg-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: linear-gradient(to bottom right, black, var(--color-neon-green-dark));
+}
+
+.container, .dashboard-container, .page-container {
+    background-color: #222;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    text-align: center;
+    max-width: 450px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #32CD32;
+}
+
+form label {
+    display: block;
+    margin: 10px 0;
+    color: var(--color-bg-white);
+}
+
+form input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    background-color: #32CD32;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 60%;
+    cursor: pointer;
+    border-radius: 30px;
+    margin: 20px 0 10px 0;
+}
+
+.btn:hover {
+    background-color: var(--color-bg-white);
+    color: var(--color-neon-green-dark);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.habit-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.habit-card {
+    background-color: #32CD32;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+}

@@ -1,0 +1,18 @@
+wellnesspal/
+│
+├── index.html                # Login Page
+├── signup.html               # Registration Page
+├── dashboard.html            # Dashboard Page (after login)
+├── water.html                # Water Intake Page
+├── meals.html                # Meals Page
+├── exercise.html             # Exercise Page
+├── sleep.html                # Sleep Page
+├── mood.html                 # Mood Page
+├── assets/
+│   ├── css/
+│   │   └── styles.css        # Shared CSS file
+│   ├── js/
+│   │   └── app.js            # Shared JavaScript file
+│   └── chart/
+│       └── chart.min.js      # Chart.js CDN link or downloaded version
+└── ...

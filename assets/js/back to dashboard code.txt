@@ -1,0 +1,7 @@
+// Handle "Back to Dashboard" button
+const backToDashboardBtn = document.getElementById('backToDashboard');
+if (backToDashboardBtn) {
+    backToDashboardBtn.addEventListener('click', function () {
+        window.location.href = 'dashboard.html';
+    });
+}
