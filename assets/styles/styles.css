@@ -33,6 +33,30 @@ body {
     background-image: linear-gradient(to bottom right, black, var(--color-neon-green-dark));
 }
 
+a:link {
+    color: var(--color-neon-green);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: var(--color-neon-green-dark);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: var(--color-neon-green);
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
 .container, .dashboard-container, .page-container {
     background-color: #222;
     padding: 40px;
