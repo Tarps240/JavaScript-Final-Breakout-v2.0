@@ -37,64 +37,66 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Initialize the Google Sign-In button
-  window.onload = function () {
-    google.accounts.id.initialize({
-      client_id:
-        "132804289720-d9jch8jbciemd4m2qejjv8c83u6niocu.apps.googleusercontent.com",
-      callback: handleCredentialResponse,
-    });
-    google.accounts.id.renderButton(document.querySelector(".g_id_signin"), {
-      theme: "outline",
-      size: "large",
-    });
-    google.accounts.id.prompt();
-  };
+  // window.onload = function () {
+  //   google.accounts.id.initialize({
+  //     client_id:
+  //       "132804289720-d9jch8jbciemd4m2qejjv8c83u6niocu.apps.googleusercontent.com",
+  //     callback: handleCredentialResponse,
+  //   });
+
+  //   google.accounts.id.renderButton(document.querySelector(".g_id_signin"), {
+  //     theme: "outline",
+  //     size: "large",
+  //   });
+
+  //   google.accounts.id.prompt();
+  // };
 
   // Handle Facebook Sign-In
 
-  window.fbAsyncInit = function() {
-    FB.init({
-        appId      : 'YOUR_FACEBOOK_APP_ID', // Replace with your Facebook App ID
-        cookie     : true, 
-        xfbml      : true, 
-        version    : 'v12.0'
-    });
+//   window.fbAsyncInit = function() {
+//     FB.init({
+//         appId      : 'YOUR_FACEBOOK_APP_ID', 
+//         cookie     : true, 
+//         xfbml      : true, 
+//         version    : 'v12.0'
+//     });
 
-    FB.AppEvents.logPageView();   
+//     FB.AppEvents.logPageView();   
 
-    // Handle the Facebook login status
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-    });
-};
+//     // Handle the Facebook login status
+//     FB.getLoginStatus(function(response) {
+//         statusChangeCallback(response);
+//     });
+// };
 
 // Handle the Facebook login response.
 
-function statusChangeCallback(response) {
-    if (response.status === 'connected') {
-        // Logged into your app and Facebook.
-        FB.api('/me', function(response) {
-            console.log('User Info:', response);
-            localStorage.setItem('loggedInUser', response.name);
-            window.location.href = 'dashboard.html';
-        });
-    } else {
-        console.log('User is not authenticated with Facebook.');
-    }
-}
+// function statusChangeCallback(response) {
+//     if (response.status === 'connected') {
+//         // Logged into your app and Facebook.
+//         FB.api('/me', function(response) {
+//             console.log('User Info:', response);
+//             localStorage.setItem('loggedInUser', response.name);
+//             window.location.href = 'dashboard.html';
+//         });
+//     } else {
+//         console.log('User is not authenticated with Facebook.');
+//     }
+// }
 
 // Trigger Facebook login
-document.querySelector('.fb-login-button').addEventListener('click', function() {
-    FB.login(function(response) {
-        if (response.status === 'connected') {
-            FB.api('/me', function(user) {
-                console.log('User Info:', user);
-                localStorage.setItem('loggedInUser', user.name);
-                window.location.href = 'dashboard.html';
-            });
-        }
-    }, {scope: 'public_profile,email'});
-});
+// document.querySelector('.fb-login-button').addEventListener('click', function() {
+//     FB.login(function(response) {
+//         if (response.status === 'connected') {
+//             FB.api('/me', function(user) {
+//                 console.log('User Info:', user);
+//                 localStorage.setItem('loggedInUser', user.name);
+//                 window.location.href = 'dashboard.html';
+//             });
+//         }
+//     }, {scope: 'public_profile,email'});
+// });
 
 
 
