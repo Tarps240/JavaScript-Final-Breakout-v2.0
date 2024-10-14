@@ -1,3 +1,4 @@
+// Ensure the DOM is fully loaded before executing JavaScript.
 document.addEventListener("DOMContentLoaded", function () {
   const usernameDisplay = document.getElementById("usernameDisplay");
   const loggedInUser = localStorage.getItem("loggedInUser");
@@ -26,80 +27,51 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Handle Google Sign-In
-  function handleCredentialResponse(response) {
-    const userObject = jwt_decode(response.credential);
-    console.log("User Info:", userObject); // Display user info
-
-    // Store user in localStorage
-    localStorage.setItem("loggedInUser", userObject.name);
-    window.location.href = "dashboard.html";
-  }
-
-  // Initialize the Google Sign-In button
-  // window.onload = function () {
-  //   google.accounts.id.initialize({
-  //     client_id:
-  //       "132804289720-d9jch8jbciemd4m2qejjv8c83u6niocu.apps.googleusercontent.com",
-  //     callback: handleCredentialResponse,
-  //   });
-
-  //   google.accounts.id.renderButton(document.querySelector(".g_id_signin"), {
-  //     theme: "outline",
-  //     size: "large",
-  //   });
-
-  //   google.accounts.id.prompt();
-  // };
-
   // Handle Facebook Sign-In
 
-//   window.fbAsyncInit = function() {
-//     FB.init({
-//         appId      : 'YOUR_FACEBOOK_APP_ID', 
-//         cookie     : true, 
-//         xfbml      : true, 
-//         version    : 'v12.0'
-//     });
+  //   window.fbAsyncInit = function() {
+  //     FB.init({
+  //         appId      : 'YOUR_FACEBOOK_APP_ID',
+  //         cookie     : true,
+  //         xfbml      : true,
+  //         version    : 'v12.0'
+  //     });
 
-//     FB.AppEvents.logPageView();   
+  //     FB.AppEvents.logPageView();
 
-//     // Handle the Facebook login status
-//     FB.getLoginStatus(function(response) {
-//         statusChangeCallback(response);
-//     });
-// };
+  //     // Handle the Facebook login status
+  //     FB.getLoginStatus(function(response) {
+  //         statusChangeCallback(response);
+  //     });
+  // };
 
-// Handle the Facebook login response.
+  // Handle the Facebook login response.
 
-// function statusChangeCallback(response) {
-//     if (response.status === 'connected') {
-//         // Logged into your app and Facebook.
-//         FB.api('/me', function(response) {
-//             console.log('User Info:', response);
-//             localStorage.setItem('loggedInUser', response.name);
-//             window.location.href = 'dashboard.html';
-//         });
-//     } else {
-//         console.log('User is not authenticated with Facebook.');
-//     }
-// }
+  // function statusChangeCallback(response) {
+  //     if (response.status === 'connected') {
+  //         // Logged into your app and Facebook.
+  //         FB.api('/me', function(response) {
+  //             console.log('User Info:', response);
+  //             localStorage.setItem('loggedInUser', response.name);
+  //             window.location.href = 'dashboard.html';
+  //         });
+  //     } else {
+  //         console.log('User is not authenticated with Facebook.');
+  //     }
+  // }
 
-// Trigger Facebook login
-// document.querySelector('.fb-login-button').addEventListener('click', function() {
-//     FB.login(function(response) {
-//         if (response.status === 'connected') {
-//             FB.api('/me', function(user) {
-//                 console.log('User Info:', user);
-//                 localStorage.setItem('loggedInUser', user.name);
-//                 window.location.href = 'dashboard.html';
-//             });
-//         }
-//     }, {scope: 'public_profile,email'});
-// });
-
-
-
+  // Trigger Facebook login
+  // document.querySelector('.fb-login-button').addEventListener('click', function() {
+  //     FB.login(function(response) {
+  //         if (response.status === 'connected') {
+  //             FB.api('/me', function(user) {
+  //                 console.log('User Info:', user);
+  //                 localStorage.setItem('loggedInUser', user.name);
+  //                 window.location.href = 'dashboard.html';
+  //             });
+  //         }
+  //     }, {scope: 'public_profile,email'});
+  // });
 
   // Handle sign-up form submission
   const signupForm = document.getElementById("signupForm");
@@ -130,6 +102,43 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  ///////////////////////////////////////////// Google Sign-In Code ////////////////////////////////
+
+  // Handle Google Sign-In
+  function handleCredentialResponse(response) {
+    const userObject = jwt_decode(response.credential);
+    console.log("User Info:", userObject); // Display user info
+
+    //Store user in localStorage
+    localStorage.setItem("loggedInUser", userObject.name);
+    window.location.href = "dashboard.html";
+  }
+
+  // Initialize the Google Sign-In button
+  window.onload = function () {
+    google.accounts.id.initialize({
+      client_id:
+        "132804289720-d9jch8jbciemd4m2qejjv8c83u6niocu.apps.googleusercontent.com",
+      callback: handleCredentialResponse,
+    });
+
+    google.accounts.id.renderButton(document.querySelector(".g_id_signin"), {
+      theme: "outline",
+      size: "large",
+    });
+
+    google.accounts.id.prompt();
+  };
+
+  // Handle log out
+  const logOutBtn = document.getElementById("logOutBtn");
+  if (logOutBtn) {
+    logOutBtn.addEventListener("click", function () {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "index.html";
+    });
+  }
+
   // Handle dashboard user display
   if (usernameDisplay && loggedInUser) {
     usernameDisplay.textContent = loggedInUser;
@@ -143,22 +152,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Handle log out
-  const logOutBtn = document.getElementById("logOutBtn");
-  if (logOutBtn) {
-    logOutBtn.addEventListener("click", function () {
-      localStorage.removeItem("loggedInUser");
-      window.location.href = "index.html";
-    });
-  }
-
   // Handle habit logging
   const habitForms = {
     waterForm: "water",
     mealsForm: "meals",
     exerciseForm: "exercise",
     sleepForm: "sleep",
-    moodForm: "mood",
+    calorieForm: "calorie",
   };
 
   Object.keys(habitForms).forEach((formId) => {
@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
     mealsChart: "meals",
     exerciseChart: "exercise",
     sleepChart: "sleep",
-    calorieChart: "calories",
+    calorieChart: "calorie",
   };
 
   Object.keys(chartContainers).forEach((chartId) => {
@@ -205,6 +205,9 @@ document.addEventListener("DOMContentLoaded", function () {
             `habits_${loggedInUser}_${chartContainers[chartId]}`
           )
         ) || [];
+        
+        console.log("Chart data: ", habitData);
+
       const labels = habitData.map((entry) => entry.date);
       const data = habitData.map((entry) => entry.value);
 
@@ -231,51 +234,52 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
-});
 
-    // Handle habit logging for calories
-    const calorieForm = document.getElementById('calorieForm');
-    if (calorieForm) {
-        calorieForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-            const calorieValue = document.getElementById('calories').value;
-            const calorieData = JSON.parse(localStorage.getItem(`habits_${loggedInUser}_calories`)) || [];
+  // Render chart previews on the dashboard
 
-            calorieData.push({
-                date: new Date().toISOString().split('T')[0],
-                value: calorieValue,
-            });
+  const chartPreviews = {
+    waterPreview: "water",
+    mealsPreview: "meals",
+    exercisePreview: "exercise",
+    sleepPreview: "sleep",
+    caloriePreview: "calorie",
+  };
 
-            localStorage.setItem(`habits_${loggedInUser}_calories`, JSON.stringify(calorieData));
-            alert('Calories logged successfully!');
-            window.location.href = 'dashboard.html';
-        });
-    }
+  Object.keys(chartPreviews).forEach((chartId) => {
+    const chartElement = document.getElementById(chartId);
+    if (chartElement) {
+      const habitData =
+        JSON.parse(
+          localStorage.getItem(
+            `habits_${loggedInUser}_${chartPreviews[chartId]}`
+          )
+        ) || [];
+      const labels = habitData.map((entry) => entry.date).slice(-7);
+      const data = habitData.map((entry) => entry.value).slice(-7);
 
-    //Display calorie data on chart
-    const calorieChartElement = document.getElementById('calorieChart');
-    if (calorieChartElement) {
-        const calorieData = JSON.parse(localStorage.getItem(`habits_${loggedInUser}_calories`)) || [];
-        const labels = calorieData.map((entry) => entry.date);
-        const data = calorieData.map((entry) => entry.value);
-
-        new Chart(calorieChartElement, {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Calories over the past 7 days',
-                    data: data,
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1,
-                }],
+      new Chart(chartElement, {
+        type: "line",
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: `${chartPreviews[chartId]} data over the past 7 days`,
+              data: data,
+              borderColor: `rgba(75, 192, 192, 1)`,
+              borderWidth: 1,
             },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                    },
-                },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          scales: {
+            y: {
+              beginAtZero: true,
             },
-        });
+          },
+        },
+      });
     }
+  });
+}); //End DOM ContentLoaded event listener.
