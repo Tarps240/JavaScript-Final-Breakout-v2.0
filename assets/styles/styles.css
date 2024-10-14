@@ -66,6 +66,20 @@ a:link {
     max-width: 50%;
 }
 
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
 hr {
     width: 100%;
     border: 1px solid var(--border-color);

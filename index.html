@@ -6,16 +6,19 @@
     <title>FitLife - Login</title>
     <link rel="stylesheet" href="./assets/styles/styles.css">
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script> -->
+    
 </head>
 <body>
+
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v21.0&appId=521264770678110"></script>
     
     <div class="container">
         <div class="img-container">
-            <img src="https://picsum.photos/150" alt="Placeholder for heart image">
+            <img src="./assets/images/Firefly_heart_transparent.png" alt="Placeholder for heart image" class="hero-img">
         </div>
-        <h1>FitLife!</h1>
-        <p>Welcome to FitLife, <br> a user friendly gateway to your healthier lifestyle journey!</p>
+        <h1 class = "hero-title">FitLife!</h1>
+        <p class="caption-title">Welcome to FitLife, <br> a user friendly gateway to your healthier lifestyle journey!</p>
         <form id="loginForm">
             <label for="username">Username:</label>
             <input type="text" id="username" required>
@@ -24,11 +27,13 @@
             <button type="submit" class="btn">Get Started</button>
         </form>
 
-        <p>Don't have an account? <br><a href="signup.html">Sign up here</a></p>
+        <p>Don't have an account? <br>
+        <a href="signup.html">Sign up here</a></p>
 
         <hr>
 
 <!-- Google Sign-In button -->
+
     <div class="google-container">
         <div id="g_id_onload"
              data-client_id="132804289720-d9jch8jbciemd4m2qejjv8c83u6niocu.apps.googleusercontent.com"
@@ -39,16 +44,17 @@
     </div>
 
 <!-- FaceBook Sign-In button -->
- <div class="facebook-container">
-    <div class="fb-login-button" 
-        data-width="" 
-        data-size="large" 
-        data-button-type="continue_with" 
-        data-layout="default" 
+
+<div    
+        class="fb-login-button" 
+        data-width="560" 
+        data-size="" 
+        data-button-type="" 
+        data-layout="" 
         data-auto-logout-link="false" 
         data-use-continue-as="false">
-    </div>
 </div>
+ 
     </div>
     <script src="./assets/js/app.js"></script>
 </body>

@@ -27,51 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Handle Facebook Sign-In
-
-  //   window.fbAsyncInit = function() {
-  //     FB.init({
-  //         appId      : 'YOUR_FACEBOOK_APP_ID',
-  //         cookie     : true,
-  //         xfbml      : true,
-  //         version    : 'v12.0'
-  //     });
-
-  //     FB.AppEvents.logPageView();
-
-  //     // Handle the Facebook login status
-  //     FB.getLoginStatus(function(response) {
-  //         statusChangeCallback(response);
-  //     });
-  // };
-
-  // Handle the Facebook login response.
-
-  // function statusChangeCallback(response) {
-  //     if (response.status === 'connected') {
-  //         // Logged into your app and Facebook.
-  //         FB.api('/me', function(response) {
-  //             console.log('User Info:', response);
-  //             localStorage.setItem('loggedInUser', response.name);
-  //             window.location.href = 'dashboard.html';
-  //         });
-  //     } else {
-  //         console.log('User is not authenticated with Facebook.');
-  //     }
-  // }
-
-  // Trigger Facebook login
-  // document.querySelector('.fb-login-button').addEventListener('click', function() {
-  //     FB.login(function(response) {
-  //         if (response.status === 'connected') {
-  //             FB.api('/me', function(user) {
-  //                 console.log('User Info:', user);
-  //                 localStorage.setItem('loggedInUser', user.name);
-  //                 window.location.href = 'dashboard.html';
-  //             });
-  //         }
-  //     }, {scope: 'public_profile,email'});
-  // });
+////////////////////////////// Sign-up code starts here //////////////////////
 
   // Handle sign-up form submission
   const signupForm = document.getElementById("signupForm");
