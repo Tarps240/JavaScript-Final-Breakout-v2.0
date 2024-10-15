@@ -1,6 +1,8 @@
 /* Import Fonts */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* Define Global Styles */
 
@@ -12,12 +14,16 @@
 
 :root {
     --color-neon-green: #32CD32;
-    --color-neon-green-dark: #11951e;
+    --color-neon-green-dark: #11951E;
     --color-bg-black: black;
     --color-bg-white: white;
     --text-color: #333;
     --border-color: #ccc;
     --ff-standard: 'Roboto', 'sans-serif';
+    --ff-display-mont: 'Montserrat', 'sans-serif';
+    --ff-display-poppins: 'Poppins', 'sans-serif';
+    --font-wght-light: 400;
+    --font-wght-heavy: 700;
 }
 
 body {
@@ -66,12 +72,14 @@ a:link {
     max-width: 50%;
 }
 
+/* Login Page Header Styles */
+
 .img-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .hero-img {
@@ -80,16 +88,17 @@ a:link {
     height: auto;
 }
 
-hr {
-    width: 100%;
-    border: 1px solid var(--border-color);
-    margin: 15px 0;
+.caption-title {
+    margin-bottom: 20px;
+    font-style: italic;
 }
 
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #32CD32;
+/* Form styling */
+
+.hero-title {
+    font-weight: var(--font-wght-heavy);
+    font-size: 40px;
+    letter-spacing: .1rem;
 }
 
 form label {
@@ -107,14 +116,16 @@ form input {
 }
 
 .btn {
-    background-color: #32CD32;
+    background-color: var(--color-neon-green);
     color: white;
     border: none;
     padding: 10px;
+    font-size: 16px;
     width: 60%;
     cursor: pointer;
     border-radius: 30px;
-    margin: 20px 0 10px 0;
+    margin: 10px 0 30px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .btn:hover {
@@ -123,14 +134,57 @@ form input {
     transition: background-color 0.3s ease-in-out;
 }
 
-.habit-summary {
-    display: flex;
-    /* flex-direction: column; */
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+.input-container {
+    position: relative;
+    margin-bottom: 15px;
 }
+
+.input-container i {
+    position: absolute;
+    left: 50px;
+    top: 48%;
+    color: var(--color-neon-green);
+}
+
+.input-container input {
+    padding-left: 30px;
+    width: 80%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+}
+
+/* Google and Facebook Button Styling */
+
+hr {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    margin: 15px 0;
+}
+
+h1 {
+    font-family: var(--ff-display-poppins);
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #32CD32;
+}
+
+.google-container {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.facebook-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Habit Input Styling */
 
 .habit-card {
     background-color: #32CD32;
@@ -153,19 +207,13 @@ form input {
     width: 50%;
 }
 
-.google-container {
-    margin: 10px 0;
+.habit-summary {
     display: flex;
-    justify-content: center;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
-    border-radius: 30px;
-}
-
-.facebook-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
+    gap: 20px;
 }
 
 /* Media Queries */

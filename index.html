@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitLife - Login</title>
     <link rel="stylesheet" href="./assets/styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     
 </head>
@@ -20,10 +21,16 @@
         <h1 class = "hero-title">FitLife!</h1>
         <p class="caption-title">Welcome to FitLife, <br> a user friendly gateway to your healthier lifestyle journey!</p>
         <form id="loginForm">
+            <div class="input-container">
             <label for="username">Username:</label>
+            <i class="fas fa-user"></i>
             <input type="text" id="username" required>
+            </div>
+            <div class="input-container">
             <label for="password">Password:</label>
+            <i class="fas fa-lock"></i>
             <input type="password" id="password" required>
+            </div>
             <button type="submit" class="btn">Get Started</button>
         </form>
 
